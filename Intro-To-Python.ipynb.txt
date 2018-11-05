@@ -1,0 +1,2633 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# <center> Lecture 1 </center>\n",
+    "#### <center> Sumit Shyamsukha </center>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "***"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## What to expect?\n",
+    "<ul><li><a href='#overview'><strong>Python3 Overview</strong></a></li><li><a href='#basics'><strong>Python Basics</strong></a></li>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<a id='overview'></a>\n",
+    "# What is Python?\n",
+    "\n",
+    "<ul><li> Python first appeared in 1991 </li> <ul><li>Created by Guido van Rossum (Guido van Awesome)</li><ul><li> Still involved with major changes and framework decisions</li> <li> Regarded benevolent dictator for life</li></ul></ul> <li> Python3 is the latest iteration </li><ul><li> Open source </li> <li> [Driven by the Python Software Foundation](https://www.python.org/psf/) </li></ul></ul>\n",
+    "\n",
+    "## Python Versions\n",
+    "\n",
+    "\n",
+    "<table style='float:left'>\n",
+    "  <tr>\n",
+    "    <th>Python 1</th>\n",
+    "    <th>Python 2</th> \n",
+    "    <th>Python 3</th>\n",
+    "  </tr>\n",
+    "  <tr>\n",
+    "    <td>Work started in December 1989</td>\n",
+    "    <td>Released in 2000</td>\n",
+    "    <td>Better Unicode Support</td>\n",
+    "  </tr>\n",
+    "  <tr>\n",
+    "    <td>First release in 1991</td>\n",
+    "    <td>Switched to community backed development</td>\n",
+    "    <td>Various optimizations</td>\n",
+    "  </tr>\n",
+    "  <tr>\n",
+    "    <td>Named after Monty Python</td>\n",
+    "    <td>Garbage collection and Unicode support</td>\n",
+    "    <td></td>\n",
+    "  </tr>\n",
+    "</table>\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Why use Python?\n",
+    "\n",
+    "<ul><li> Emphasizes code readability</li><ul><li> The Zen of python (aka language enforced coding standards)</li><li> Try <code>import this</code></li></ul><li> Supports small and large scale programs</li><li> Supports multiple programming paradigms </li><li> Widespread usage and knowledge</li></ul>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The Zen of Python, by Tim Peters\n",
+      "\n",
+      "Beautiful is better than ugly.\n",
+      "Explicit is better than implicit.\n",
+      "Simple is better than complex.\n",
+      "Complex is better than complicated.\n",
+      "Flat is better than nested.\n",
+      "Sparse is better than dense.\n",
+      "Readability counts.\n",
+      "Special cases aren't special enough to break the rules.\n",
+      "Although practicality beats purity.\n",
+      "Errors should never pass silently.\n",
+      "Unless explicitly silenced.\n",
+      "In the face of ambiguity, refuse the temptation to guess.\n",
+      "There should be one-- and preferably only one --obvious way to do it.\n",
+      "Although that way may not be obvious at first unless you're Dutch.\n",
+      "Now is better than never.\n",
+      "Although never is often better than *right* now.\n",
+      "If the implementation is hard to explain, it's a bad idea.\n",
+      "If the implementation is easy to explain, it may be a good idea.\n",
+      "Namespaces are one honking great idea -- let's do more of those!\n"
+     ]
+    }
+   ],
+   "source": [
+    "import this"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Python around the world\n",
+    "\n",
+    "<ul>\n",
+    "    <li>\n",
+    "<a href=\"https://stackoverflow.blog/2017/09/06/incredible-growth-python/\">Read this stackoverflow blog post on rising python popularity</a></li>\n",
+    "    <li><a href=\"https://www.tiobe.com/tiobe-index/\">TIOBE Index has Python at #4 this February, up from #5 from last year February</a></li>\n",
+    "    </ul>\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<a id='basics'></a>\n",
+    "\n",
+    "# Executing python3\n",
+    "\n",
+    "Typically you would type <code>python script.py</code> in the terminal, but that's generally frowned upon. \n",
+    "    \n",
+    "What you want to do instead is add a shebang line to the top of your script : <code>#!/usr/bin/env python3</code>. This determines the interpreter for your script (in this case python3). Next, you modify the permissions of the execute bit for your script by running <code>chmod+x ./script.py</code>. Now that the setup is done, you can simply run your script by typing in your terminal <code>./script.py</code>.\n",
+    "\n",
+    "<strong>NOTE</strong> : For the purposes of training, we're making use of a Jupyter notebook (what you're using now). This is purely to make it easier to follow along with the lecture content and code by being able to view it all in the same place. To execute the contents of a cell, press <code>Shift+Enter</code>\n",
+    "\n",
+    "# Syntax \n",
+    "### Space matters\n",
+    "Unlike java/c/c++, space is the basic statement/block delimiter in python. For example - \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n",
+      "4\n",
+      "5\n",
+      "6\n",
+      "7\n",
+      "8\n",
+      "9\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in range(10):\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Try removing the space before <code>print(i)</code> and see what happens. \n",
+    "\n",
+    "<ul><li><strong> Note : Tabs != Spaces</strong></li> \n",
+    "    <li>Tabs should be replaced by 4 spaces (this can be set within your IDE/Text Editor). </li></ul>\n",
+    "\n",
+    "<ul><li><strong> Further Note : If you do prefer using tabs to spaces, just be sure to use them in your entire script.</strong></li><li> Python will throw indentation errors if the tab/space usage is inconsistent.</li></ul>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Typing\n",
+    "\n",
+    "<ul>\n",
+    "    <li>Python is both a dynamically typed language and a strongly typed language. </li>\n",
+    "\n",
+    "<li> It is Dynamically typed to support things like - type constraints checking only at run time.</li>\n",
+    "\n",
+    "<li> It is Strongly typed as well to not support things like - undefined operations on mismatched types (like adding int to str).</li>\n",
+    "\n",
+    "<li>Type checking is deferred to run-time - <a href=\"https://en.wikipedia.org/wiki/Duck_typing\">Duck Typing</a></li>\n",
+    "</ul>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "ab\n",
+      "[1, 2]\n"
+     ]
+    },
+    {
+     "ename": "TypeError",
+     "evalue": "unsupported operand type(s) for +: 'int' and 'str'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-5-d81d10a43163>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0madd_two\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"a\"\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\"b\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      7\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0madd_two\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 8\u001b[0;31m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0madd_two\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m\"a\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m<ipython-input-5-d81d10a43163>\u001b[0m in \u001b[0;36madd_two\u001b[0;34m(a, b)\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mdef\u001b[0m \u001b[0madd_two\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0ma\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mb\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0ma\u001b[0m\u001b[0;34m+\u001b[0m\u001b[0mb\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0madd_two\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mTypeError\u001b[0m: unsupported operand type(s) for +: 'int' and 'str'"
+     ]
+    }
+   ],
+   "source": [
+    "def add_two(a, b):\n",
+    "    return a+b\n",
+    "\n",
+    "\n",
+    "print(add_two(1,2))\n",
+    "print(add_two(\"a\",\"b\"))\n",
+    "print(add_two([1], [2]))\n",
+    "print(add_two(1,\"a\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n"
+     ]
+    }
+   ],
+   "source": [
+    "def add_two_2(a, b):\n",
+    "    return a+int(b)\n",
+    "\n",
+    "print(add_two_2(1,\"1\"))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Basic Data Types\n",
+    "\n",
+    "<ul><li> String </li> <ul><li> str() </li> <li> Delimited by <code>'single quotes'</code> or <code>\"double quotes\"</code>, provided you pair them up </li> </ul>\n",
+    "    <li>Integer/Double<ul><li>int(), float(), complex()</li><li>Floats are not really like C floats</li><li>53 bits of precision</li></ul>\n",
+    "    <li>Bools</li>\n",
+    "    <li>None type</li>\n",
+    "    <li><a href=\"https://docs.python.org/3.1/library/stdtypes.html\">Further reading for the curious..</a></li>\n",
+    "</ul>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Operators \n",
+    "\n",
+    "<ul>\n",
+    "    <li><code>/</code>  Division </li>\n",
+    "    <li><code>//</code> Floored division (int) </li>\n",
+    "    <li><code>+</code>  Addition</li>\n",
+    "    <li><code>*</code>  Multiplication </li>\n",
+    "    <li><code>%</code>  Modulus </li>\n",
+    "    <li><code>**</code> Exponentiation (~ math.pow() in java)</li>\n",
+    "    <li><code>not, and, or </code> Logical operators (~ &&, ||, ! in java)</li>\n",
+    "    <li><code>is</code> Check for object equality</li>\n",
+    "    <li><code> ==, !=</code> Equality operators</li>\n",
+    "    <li><code> <=,>=, >, < </code> Comparision Operators</li>\n",
+    "</ul>\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a+b =  7\n",
+      "a//b =  2\n",
+      "a*b =  10\n",
+      "a**b =  25\n",
+      "a%b =  1\n",
+      "a/b =  2.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = 5\n",
+    "b = 2\n",
+    "print(\"a+b = \", a+b)\n",
+    "print(\"a//b = \", a//b)\n",
+    "print(\"a*b = \", a*b)\n",
+    "print(\"a**b = \", a**b)\n",
+    "print(\"a%b = \", a%b)\n",
+    "print(\"a/b = \", a/b)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "False\n",
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "list_a = [1,1,1,1]\n",
+    "list_b = [1,1,1,2]\n",
+    "print(list_a == list_b)\n",
+    "print(list_a is list_a)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Bitwise Operators\n",
+    "\n",
+    "<ul>\n",
+    "    <li><code>x|y</code> Bitwise OR of x and y</li>\n",
+    "    <li><code>x&u</code> Bitwise AND of x and y</li>\n",
+    "    <li><code>x^y</code> Bitwise XOR of x and y</li>\n",
+    "    <li><code>x << n </code> Left shift x by n bits</li>\n",
+    "    <li><code>x >> n </code> Right shift x by n bits</li>\n",
+    "    <li><code>~x </code> Bitwise NOT of x</li>\n",
+    "    </ul>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x = 1\n",
+    "x = x << 1\n",
+    "x << 1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Control Flow \n",
+    "\n",
+    "<ul>\n",
+    "    <li> <code> if - elif - else: </code> if else if </li>\n",
+    "    <li> <code> for: </code> for loop </li>\n",
+    "    <li> <code> while: </code> while loop (note: no builtin do-while) </li>\n",
+    "    <li> <code> try - except - finally </code> try-catch control flow<li>\n",
+    "    <li> <code> with: </code> </li>\n",
+    "    <li> <code> pass </code> </li>\n",
+    "    <ul>\n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "some_var is totally bigger than 10.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Let's just make a variable\n",
+    "some_var = 15\n",
+    "\n",
+    "\n",
+    "# Here is an if statement. Indentation is significant in python!\n",
+    "# prints \"some_var is smaller than 10\"\n",
+    "if some_var > 10:\n",
+    "    print(\"some_var is totally bigger than 10.\")\n",
+    "elif some_var < 10:    # This elif clause is optional.\n",
+    "    print(\"some_var is smaller than 10.\")\n",
+    "else:                  # This is optional too.\n",
+    "    print(\"some_var is indeed 10.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "dog is mammal #0\n",
+      "cat is mammal #1\n",
+      "mouse is mammal #2\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "For loops iterate over lists\n",
+    "prints:\n",
+    "   dog is a mammal\n",
+    "   cat is a mammal\n",
+    "   mouse is a mammal\n",
+    "\"\"\"\n",
+    "for i, animal in enumerate([\"dog\", \"cat\", \"mouse\"]):\n",
+    "    # You can use format() to interpolate formatted strings\n",
+    "    print(\"{} is mammal #{}\".format(animal, i))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "\"range(number)\" returns an iterable of numbers\n",
+    "from zero to the given number\n",
+    "prints:\n",
+    "   0\n",
+    "   1\n",
+    "   2\n",
+    "   3\n",
+    "\"\"\"\n",
+    "for i in range(4):\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4\n",
+      "5\n",
+      "6\n",
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "\"range(lower, upper)\" returns an iterable of numbers\n",
+    "from the lower number to the upper number [lower, upper)\n",
+    "prints:\n",
+    "   4\n",
+    "   5\n",
+    "   6\n",
+    "   7\n",
+    "\"\"\"\n",
+    "for i in range(4, 8):\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4\n",
+      "6\n",
+      "8\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "\"range(lower, upper, step)\" returns an iterable of numbers\n",
+    "from the lower number to the upper number, while incrementing\n",
+    "by step. If step is not indicated, the default value is 1.\n",
+    "prints:\n",
+    "   4\n",
+    "   6\n",
+    "\"\"\"\n",
+    "for i in range(4, 10, 2):\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "1\n",
+      "2\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    " \n",
+    "While loops go until a condition is no longer met.\n",
+    "prints:\n",
+    "   0\n",
+    "   1\n",
+    "   2\n",
+    "   3\n",
+    "\"\"\"\n",
+    "x = 0\n",
+    "while x < 4:\n",
+    "    print(x)\n",
+    "    x += 1  # Shorthand for x = x + 1\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Exceptions\n",
+    "\n",
+    "<ul>\n",
+    "    <li> Exceptions are everywhere in python</li>\n",
+    "    <li> There's a ton of exception support, so be sure to find the right one and use them</li>\n",
+    "    <li> <a href = \"https://docs.python.org/3.6/library/exceptions.html\"> Read more here </a></li>\n",
+    "    <ul>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Questions so far? \n",
+    "\n",
+    "<ol> \n",
+    "    <li> Can you use tabs for indentations?</li>\n",
+    "    <li> What is duck typing? </li>\n",
+    "    <li> What does <code>//</code> do?</li>\n",
+    "\n",
+    "</ol>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Mutable vs Immutable Types\n",
+    "\n",
+    "<ul>\n",
+    "    <li>The following are immutable type in Python - \n",
+    "        <ul>\n",
+    "        <li> Numeric types like int, float, complex</li>\n",
+    "        <li> string </li>\n",
+    "        <li> tuple </li>\n",
+    "        <li> frozenset </li>\n",
+    "        <li> bytes </li>\n",
+    "        </ul>\n",
+    "     </li>\n",
+    "\n",
+    "<li>The following are mutable types in Python - \n",
+    "    <ul>\n",
+    "    <li> list </li>\n",
+    "    <li> dict </li>\n",
+    "    <li> set </li>\n",
+    "    <li> bytearray </li>\n",
+    "    </ul></li>\n",
+    "   <li><a href =\"https://codehabitude.com/2013/12/24/python-objects-mutable-vs-immutable/\"> Read differences here</a> </li> \n",
+    "</ul>\n",
+    "    \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a = 1\n",
+    "a+= 1\n",
+    "a"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "'str' object does not support item assignment",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-40-8609b08cd88d>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0md\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m'hi'\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0md\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m'1'\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m: 'str' object does not support item assignment"
+     ]
+    }
+   ],
+   "source": [
+    "d = 'hi'\n",
+    "d[0] = '1'"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Strings \n",
+    "\n",
+    "<ul>\n",
+    "    <li> String handling - \n",
+    "        <ul>\n",
+    "            <li> Strings != bytes </li>\n",
+    "            <li> There's no implicit way to convert between the two </li>\n",
+    "            <li> In case where a conversion is needed, try something like <a href=\"https://pastebin.com/Kja19ncy\"> this </a></li>\n",
+    "        </ul>\n",
+    "    </li>\n",
+    "    <li> Formatting options - \n",
+    "        <ul>\n",
+    "            <li>Covered further down</a> </li>\n",
+    "        </ul>\n",
+    "    </li>\n",
+    "    <li> <code>+</code> or concatenation in strings - \n",
+    "        <ul>\n",
+    "            <li> Does not implicitly cast objects to strings\n",
+    "                <ul>\n",
+    "                    <li> <code>1 + \"str\" => Error</code></li>\n",
+    "                    <li><code> str(1)+\"str\" => OK (= \"1str\")</code></li>\n",
+    "                </ul>\n",
+    "            </li>\n",
+    "        </ul>\n",
+    "    </li>\n",
+    "    </ul>\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello world!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Strings can be added too! But try not to do this.\n",
+    "print(\"Hello \" + \"world!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello world!\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Strings can be added without using '+'\n",
+    "print(\"Hello \" \"world!\") "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "i\n"
+     ]
+    }
+   ],
+   "source": [
+    "# A string can be treated like a list of characters\n",
+    "print(\"This is a string\"[5])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "S2 can be S1\n"
+     ]
+    }
+   ],
+   "source": [
+    "# .format can be used to format strings, like this:\n",
+    "print(\"{} can be {}\".format(\"S2\", \"S1\") ) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Jack be nimble, candle stick be quick, Jack jump over the candle stick\n"
+     ]
+    }
+   ],
+   "source": [
+    "# You can repeat the formatting arguments to save some typing.\n",
+    "print(\"{0} be nimble, {1} be quick, {0} jump over the {1}\".format(\"Jack\", \"candle stick\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Bob wants to eat lasagna\n"
+     ]
+    }
+   ],
+   "source": [
+    "# You can use keywords if you don't want to count.\n",
+    "print(\"{name} wants to eat {food}\".format(name=\"Bob\", food=\"lasagna\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Strings can be interpolated the old way\n"
+     ]
+    }
+   ],
+   "source": [
+    "# If your Python 3 code also needs to run on Python 2.5 and below, you can also\n",
+    "# still use the old style of formatting:\n",
+    "print(\"%s can be %s the %s way\" % (\"Strings\", \"interpolated\", \"old\"))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Lists \n",
+    "\n",
+    "<ul>\n",
+    "    <li> Mutable sequence of objects</li>\n",
+    "    <li> <code> some_list = []</code></li>\n",
+    "    <li> Perl equivalent of an array</li>\n",
+    "</ul>\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[]\n",
+      "[4, 5, 6, 'a', 90.1]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Lists store sequences and are mutable\n",
+    "li = []\n",
+    "# You can start with a prefilled list\n",
+    "other_li = [4, 5, 6, \"a\", 90.1]\n",
+    "print(li)\n",
+    "print(other_li)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 54,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 4, 3]\n"
+     ]
+    }
+   ],
+   "source": [
+    "li = []\n",
+    "# Add stuff to the end of a list with append\n",
+    "li.append(1)    # li is now [1]\n",
+    "li.append(2)    # li is now [1, 2]\n",
+    "li.append(4)    # li is now [1, 2, 4]\n",
+    "li.append(3)    # li is now [1, 2, 4, 3]\n",
+    "print(li)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 55,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 4]\n",
+      "[1, 2, 4, 3]\n"
+     ]
+    }
+   ],
+   "source": [
+    "li = [1,2,4,3]\n",
+    "# Remove from the end with pop\n",
+    "li.pop()        # => 3 and li is now [1, 2, 4]\n",
+    "print(li)\n",
+    "# Let's put it back\n",
+    "li.append(3)    # li is now [1, 2, 4, 3] again.\n",
+    "print(li)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "li = [1,2,4,3]\n",
+    "# Access a list like you would any array\n",
+    "print(li[0])   # => 1\n",
+    "\n",
+    "# Look at the last element\n",
+    "print(li[-1])  # => 3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "raises IndexError\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Looking out of bounds is an IndexError\n",
+    "li = [0,1,2]\n",
+    "try:\n",
+    "    li[4]  # Raises an IndexError\n",
+    "except:\n",
+    "    print(\"raises IndexError\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Middle elements are =  [2, 4]\n",
+      "Last two elements are =  [4, 3]\n",
+      "Omitting the end results in =  [1, 2, 4]\n",
+      "Every second element =  [1, 4]\n",
+      "Reversed list =  [3, 4, 2, 1]\n",
+      "Copy of li =  [1, 2, 4, 3]\n",
+      "Check if it's a deep copy - li2 is li =  False\n"
+     ]
+    }
+   ],
+   "source": [
+    "li = [1,2,4,3]\n",
+    "# You can look at ranges with slice syntax.\n",
+    "# (It's a closed/open range for you mathy types.)\n",
+    "\n",
+    "\n",
+    "print(\"Middle elements are = \",li[1:3])   # => [2, 4]\n",
+    "\n",
+    "# Omit the beginning\n",
+    "print(\"Last two elements are = \", li[2:])    # => [4, 3]\n",
+    "\n",
+    "# Omit the end\n",
+    "print(\"Omitting the end results in = \", li[:3])    # => [1, 2, 4]\n",
+    "\n",
+    "# Select every second entry\n",
+    "print(\"Every second element = \", li[::2])   # =>[1, 4]\n",
+    "\n",
+    "# Return a reversed copy of the list\n",
+    "print(\"Reversed list = \", li[::-1])  # => [3, 4, 2, 1]\n",
+    "\n",
+    "# Use any combination of these to make advanced slices\n",
+    "# li[start:end:step]\n",
+    "\n",
+    "# Make a one layer deep copy using slices\n",
+    "li2 = li[:]  # => li2 = [1, 2, 4, 3] \n",
+    "print(\"Copy of li = \", li2)\n",
+    "print(\"Check if it's a deep copy - li2 is li = \", (li2 is li)) # => should be False"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "After deletion list is =  [1, 2, 3]\n",
+      "After removal, list is =  [1, 3]\n",
+      "List doesn't have 2, so it raises ValueError\n"
+     ]
+    }
+   ],
+   "source": [
+    "li = [1,2,4,3]\n",
+    "# Remove arbitrary elements from a list with \"del\"\n",
+    "del li[2]  # li is now [1, 2, 3]\n",
+    "print(\"After deletion list is = \",li)\n",
+    "# Remove first occurrence of a value\n",
+    "li.remove(2)  # li is now [1, 3]\n",
+    "print(\"After removal, list is = \",li)\n",
+    "try:\n",
+    "    li.remove(2)  # Raises a ValueError as 2 is not in the list\n",
+    "except:\n",
+    "    print(\"List doesn't have 2, so it raises ValueError\")\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "List after insert at index 1 is =  [1, 2, 3]\n",
+      "1\n",
+      "List doesn't have 4, so it raises ValueError\n"
+     ]
+    }
+   ],
+   "source": [
+    "li = [1,3]\n",
+    "# Insert an element at a specific index\n",
+    "li.insert(1, 2)  # li is now [1, 2, 3] \n",
+    "print (\"List after insert at index 1 is = \",  li)\n",
+    "# Get the index of the first item found matching the argument\n",
+    "print(li.index(2))  # => 1\n",
+    "try:\n",
+    "    li.index(4)  # Raises a ValueError as 4 is not in the list\n",
+    "except:\n",
+    "    print(\"List doesn't have 4, so it raises ValueError\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Concatenated lists =  [1, 2, 3, 4, 5, 6]\n",
+      "List after running extend() =  [1, 2, 3, 4, 5, 6]\n",
+      "True\n",
+      "[1, 2, 3, 4, 5, 6]\n",
+      "6\n"
+     ]
+    }
+   ],
+   "source": [
+    "# You can add lists\n",
+    "# Note: values for li and for other_li are not modified.\n",
+    "li = [1,2,3]\n",
+    "other_li = [4,5,6]\n",
+    "print(\"Concatenated lists = \", li + other_li)  # => [1, 2, 3, 4, 5, 6]\n",
+    "\n",
+    "# Concatenate lists with \"extend()\" \n",
+    "# Using 'extend()' results in li being modified\n",
+    "li.extend(other_li)  # Now li is [1, 2, 3, 4, 5, 6]\n",
+    "print(\"List after running extend() = \", li)\n",
+    "# Check for existence in a list with \"in\"\n",
+    "print(1 in li)  # => True\n",
+    "print(li)\n",
+    "# Examine the length with \"len()\"\n",
+    "print(len(li))  # => 6"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Tuples \n",
+    "\n",
+    "<ul>\n",
+    "    <li> Immutable sequence of objects (vs lists which are mutable)</li>\n",
+    "    <li> <code> some_tuple = () </code> </li>\n",
+    "    <li> Perl equivalent of an array </li>\n",
+    " </ul>\n",
+    " "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "Raises TypeError\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Tuples are like lists but are immutable.\n",
+    "tup = (1, 2, 3)\n",
+    "li = [1,2,3]\n",
+    "print(tup[0])\n",
+    "try:\n",
+    "    tup[0] = 3  # Raises a TypeError\n",
+    "except:\n",
+    "    print (\"Raises TypeError\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'int'>\n",
+      "<class 'tuple'>\n",
+      "<class 'tuple'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Note that a tuple of length one has to have a comma after the last element but\n",
+    "# tuples of other lengths, even zero, do not.\n",
+    "print(type((1)))   \n",
+    "print(type((1,)))  \n",
+    "print(type(())) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "(1, 2, 3, 4, 5, 6)\n",
+      "(1, 2)\n",
+      "True\n"
+     ]
+    }
+   ],
+   "source": [
+    "tup = (1,2,3)\n",
+    "# You can do most of the list operations on tuples too\n",
+    "print(len(tup))\n",
+    "print(tup + (4, 5, 6))  \n",
+    "print(tup[:2])          \n",
+    "print(2 in tup)         "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "# You can unpack tuples (or lists) into variables\n",
+    "a, b, c = (1, 2, 3)  \n",
+    "print(a)\n",
+    "print(b)\n",
+    "print(c)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "[2, 3, 5, 6, 7]\n",
+      "4\n"
+     ]
+    }
+   ],
+   "source": [
+    "# You can also do extended unpacking\n",
+    "# More on extended unpacking can be found here - https://www.python.org/dev/peps/pep-3132/\n",
+    "a, *b, c = (1, 2, 3, 5, 6, 7, 4)  \n",
+    "print(a)\n",
+    "print(b)\n",
+    "print(c)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n",
+      "4\n",
+      "Swapping...\n",
+      "4\n",
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Tuples are created by default, even if you leave out the parens\n",
+    "d,e = 4,5\n",
+    "print(e)\n",
+    "print(d)\n",
+    "# Now look how easy it is to swap two values\n",
+    "e, d = d, e \n",
+    "print(\"Swapping...\")\n",
+    "print(e)\n",
+    "print(d)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Slicing \n",
+    "\n",
+    "<ul>\n",
+    "    <li> Extracting elements from existing structures (usually lists) </li>\n",
+    "    <li> Very powerful (and pythonic) </li>\n",
+    "    <li> Can be confusing (goes beyond conventional array bounds in Java) </li>\n",
+    "    <li> Negative indices supported </li>\n",
+    "</ul>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "First four: ['a', 'b', 'c', 'd']\n",
+      "Last four:  ['e', 'f', 'g', 'h']\n",
+      "Middle two: ['d', 'e']\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Just extending on the concepts we learnt in lists..\n",
+    "a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n",
+    "# [lower=Default = 0 : Upper = Default len(list/tuple) : step DEfault =0]\n",
+    "print('First four:', a[:4])\n",
+    "print('Last four: ', a[-4:])\n",
+    "print('Middle two:', a[3:-3])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Slicing works!\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n",
+    "assert a[:5] == a[0:5]\n",
+    "assert a[5:] == a[5:len(a)]\n",
+    "print (\"Slicing works!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Assertion failure..\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Counter example \n",
+    "a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n",
+    "try:\n",
+    "    assert a[:5] !=a[0:5]\n",
+    "except:\n",
+    "    print(\"Assertion failure..\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['a', 'b', 'c', 'd', 'e']\n",
+      "['a', 'b', 'c', 'd', 'e', 'f', 'g']\n",
+      "['e', 'f', 'g', 'h']\n",
+      "['f', 'g', 'h']\n",
+      "['c', 'd', 'e']\n",
+      "['c', 'd', 'e', 'f', 'g']\n",
+      "['f', 'g']\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n",
+    "print(a[:5])\n",
+    "print(a[:-1])\n",
+    "print(a[4:])\n",
+    "print(a[-3:])\n",
+    "print(a[2:5])\n",
+    "print(a[2:-1])\n",
+    "print(a[-3:-1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "first twenty items ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n",
+      "last twenty items ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']\n",
+    "print(\"first twenty items\",  a[:20])\n",
+    "print(\"last twenty items\" , a[-20:])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Dictionaries \n",
+    "\n",
+    "<ul>\n",
+    "    <li> Mutable maps of objects </li>\n",
+    "    <li> Keys need to be immutable (refer to previous section on immutable vs mutable types) </li>\n",
+    "    <li> <code> some_dict = {} </code> </li>\n",
+    "</ul>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Dictionaries store K-V mappings\n",
+    "empty_dict = {}\n",
+    "empty = dict()\n",
+    "# Here is a prefilled dictionary\n",
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "TypeError, try valid_dict\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Note keys for dictionaries have to be immutable types. This is to ensure that\n",
+    "# the key can be converted to a constant hash value for quick look-ups.\n",
+    "# Immutable types include ints, floats, strings, tuples.\n",
+    "try:\n",
+    "    invalid_dict = {[1,2,3]: \"123\"}  \n",
+    "except:\n",
+    "    print (\"TypeError, try valid_dict\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 80,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "valid_dict = {(1,2,3):[1,2,3]}   # Values can be of any type, however."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n"
+     ]
+    }
+   ],
+   "source": [
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+    "# Look up values with []\n",
+    "print(filled_dict[\"one\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['one', 'three', 'two']\n",
+      "dict_keys(['one', 'three', 'two'])\n"
+     ]
+    }
+   ],
+   "source": [
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+    "\n",
+    "# Get all keys as an iterable with \"keys()\". We need to wrap the call in list()\n",
+    "# to turn it into a list. We'll talk about those later.  Note - Dictionary key\n",
+    "# ordering is not guaranteed. Your results might not match this exactly.\n",
+    "print(list(filled_dict.keys()))\n",
+    "print(filled_dict.keys())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 83,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 3, 2]\n"
+     ]
+    }
+   ],
+   "source": [
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+    "\n",
+    "# Get all values as an iterable with \"values()\". Once again we need to wrap it\n",
+    "# in list() to get it out of the iterable. Note - Same as above regarding key\n",
+    "# ordering.\n",
+    "print(list(filled_dict.values()))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n",
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+    "\n",
+    "# Check for existence of KEYS in a dictionary with \"in\"\n",
+    "print(\"one\" in filled_dict) # Can check for keys\n",
+    "print(1 in filled_dict) # Can't check values like this "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 85,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 85,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "1 in list(filled_dict.values())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 86,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Throws KeyError\n"
+     ]
+    }
+   ],
+   "source": [
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+    "\n",
+    "# Looking up a non-existing key is a KeyError\n",
+    "try:\n",
+    "    filled_dict[\"four\"]  # KeyError\n",
+    "except:\n",
+    "    print(\"Throws KeyError\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 87,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "None\n"
+     ]
+    }
+   ],
+   "source": [
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+    "\n",
+    "# Use \"get()\" method to avoid the KeyError\n",
+    "print(filled_dict.get(\"one\"))      \n",
+    "print(filled_dict.get(\"four\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 89,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "4\n"
+     ]
+    }
+   ],
+   "source": [
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+    "\n",
+    "# The get method supports a default argument when the value is missing eg. - dict.get(key, default_value)\n",
+    "print(filled_dict.get(\"one\", 4))  \n",
+    "print(filled_dict.get(\"four\", 4))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 90,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "3\n",
+      "5\n",
+      "dict_keys(['one', 'three', 'five', 'two'])\n"
+     ]
+    }
+   ],
+   "source": [
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+    "\n",
+    "# \"setdefault()\" inserts into a dictionary only if the given key isn't present\n",
+    "filled_dict.setdefault(\"five\", 5)\n",
+    "filled_dict.setdefault(\"three\", 6)\n",
+    "\n",
+    "print(filled_dict.get(\"three\"))\n",
+    "print(filled_dict.get(\"five\"))\n",
+    "print(filled_dict.keys())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 91,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+    "\n",
+    "# Adding to a dictionary\n",
+    "filled_dict.update({\"four\":4})\n",
+    "#filled_dict[\"four\"] = 4        #another way to add to dict"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 92,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['three', 'two']\n"
+     ]
+    }
+   ],
+   "source": [
+    "filled_dict = {\"one\": 1, \"two\": 2, \"three\": 3}\n",
+    "\n",
+    "# Remove keys from a dictionary with del\n",
+    "del filled_dict[\"one\"]  # Removes the key \"one\" from filled dict\n",
+    "print(list(filled_dict.keys()))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Sets\n",
+    "\n",
+    "<ul>\n",
+    "    <li> Set is a mutable object that behaves like a conventional set </li>\n",
+    "    <li> If you want an immutable set, try <code> frozenset </code> </li>\n",
+    "    <li> <code> empty_set = set() </code> </li>\n",
+    "</ul>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 93,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "#Sets store the mathematical set\n",
+    "empty_set = set()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 95,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{1, 2, 3, 4}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Initialize a set with a bunch of values. Yeah, it looks a bit like a dict. Sorry.\n",
+    "some_set = {1, 2, 3, 2, 3, 4}\n",
+    "print(some_set)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 96,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Can't add list to set\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Similar to keys of a dictionary, elements of a set have to be immutable.\n",
+    "try:\n",
+    "    invalid_set = {[1], 1}  # => Raises a TypeError: unhashable type: 'list'\n",
+    "except:\n",
+    "    print(\"Can't add list to set\")\n",
+    "valid_set = {(1,), 1}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 98,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n",
+      "False\n"
+     ]
+    }
+   ],
+   "source": [
+    "some_set = {1, 1, 2, 2, 3, 4}\n",
+    "# Check for existence in a set with in\n",
+    "print(2 in some_set)\n",
+    "print(10 in some_set)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 99,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{1, 2, 3, 4, 5}\n"
+     ]
+    }
+   ],
+   "source": [
+    "some_set = {1, 1, 2, 2, 3, 4}\n",
+    "# Can set new variables to a set\n",
+    "filled_set = some_set\n",
+    "# Add one more item to the set\n",
+    "filled_set.add(5) \n",
+    "print(filled_set)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 100,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{3, 4, 5}\n",
+      "{1, 2, 3, 4, 5, 6}\n"
+     ]
+    }
+   ],
+   "source": [
+    "some_set = {1, 2, 3, 4, 5}\n",
+    "other_set = {3, 4, 5, 6}\n",
+    "# Do set intersection with &\n",
+    "print(some_set & other_set)\n",
+    "\n",
+    "# Do set union with |\n",
+    "print(some_set | other_set)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 101,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{1, 4}"
+      ]
+     },
+     "execution_count": 101,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Do set difference with -\n",
+    "{1, 2, 3, 4} - {2, 3, 5}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 102,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{1, 4, 5}"
+      ]
+     },
+     "execution_count": 102,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Do set symmetric difference with ^\n",
+    "{1, 2, 3, 4} ^ {2, 3, 5}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 103,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 103,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Check if set on the left is a superset of set on the right\n",
+    "{1, 2} >= {1, 2, 3}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 104,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 104,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Check if set on the left is a subset of set on the right\n",
+    "{1, 2} <= {1, 2, 3}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Comprehensions\n",
+    "\n",
+    "<ul>\n",
+    "    <li> Quick way to create and filter lists, sets, and dictionaries as well</li>\n",
+    "</ul>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[2, 18, 16, 8]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# A list comprehension provides a compact way of mapping a list into another\n",
+    "# list by applying a function to each of the elements of the list.\n",
+    "\n",
+    "a_list = [1, 9, 8, 4]\n",
+    "b = [(elem * 2) for elem in a_list]\n",
+    "print(b)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[2, 18, 16, 8]\n"
+     ]
+    }
+   ],
+   "source": [
+    "a_list = [1, 9, 8, 4]\n",
+    "a_list = [elem * 2 for elem in a_list]\n",
+    "print(a_list)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 107,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{1: 'a', 2: 'b', 3: 'c'}"
+      ]
+     },
+     "execution_count": 107,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Swapping the keys and values of a dictionary\n",
+    "a_dict = {'a': 1, 'b': 2, 'c': 3}\n",
+    "{value:key for key, value in a_dict.items()}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 108,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Sets have their own comprehension syntax as well\n",
+    "a_set = set(range(10))\n",
+    "print(a_set)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 109,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{0, 1, 4, 9, 16, 25, 36, 49, 64, 81}"
+      ]
+     },
+     "execution_count": 109,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{x ** 2 for x in set(range(10))}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 110,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{0, 2, 4, 6, 8}"
+      ]
+     },
+     "execution_count": 110,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{x for x in set(range(10)) if x % 2 == 0}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 111,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{1, 2, 4, 8, 16, 32, 64, 128, 256, 512}"
+      ]
+     },
+     "execution_count": 111,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{2**x for x in set(range(10))}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Further questions? \n",
+    "\n",
+    "<ol>\n",
+    "    <li> Is string mutable or immutable? </li>\n",
+    "    <li> Is <code>foobar[:-1]</code> valid or not?</li>\n",
+    "    <li> When should you use a set over a list?</li>\n",
+    "</ol>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Functions \n",
+    "\n",
+    "<ul>\n",
+    "    <li> Functions are objects</li>\n",
+    "    <li> Parameter names are part of the function definition providing flexible function calling</li>\n",
+    "    <li> Values are passed to functions by object reference </li>\n",
+    "</ul>\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 112,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x is 5 and y is 6\n",
+      "x is 6 and y is 11\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "17"
+      ]
+     },
+     "execution_count": 112,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Use \"def\" to create new functions\n",
+    "def add(x, y):\n",
+    "    print(\"x is {} and y is {}\".format(x, y))\n",
+    "    return x + y  # Return values with a return statement\n",
+    "\n",
+    "# Calling functions with parameters\n",
+    "add(5, 6)  # => prints out \"x is 5 and y is 6\" and returns 11\n",
+    "\n",
+    "# Another way to call functions is with keyword arguments\n",
+    "add(y=11, x=6)  # Keyword arguments can arrive in any order."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 114,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1, 2, 3)\n",
+      "(12, 12)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# You can define functions that take a variable number of\n",
+    "# positional arguments\n",
+    "def varargs(*args):\n",
+    "    return args\n",
+    "\n",
+    "print(varargs(1, 2, 3))\n",
+    "print(varargs(12,12))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 115,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'big': 'foot', 'loch': 'ness'}"
+      ]
+     },
+     "execution_count": 115,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# You can define functions that take a variable number of\n",
+    "# keyword arguments, as well\n",
+    "def keyword_args(**kwargs):\n",
+    "    return kwargs\n",
+    "\n",
+    "# Let's call it to see what happens\n",
+    "keyword_args(big=\"foot\", loch=\"ness\")  # => {\"big\": \"foot\", \"loch\": \"ness\"}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 116,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1, 2)\n",
+      "{'a': 3, 'b': 4}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# You can do both at once, if you like\n",
+    "def all_the_args(*args, **kwargs):\n",
+    "    print(args)\n",
+    "    print(kwargs)\n",
+    "    \n",
+    "\n",
+    "all_the_args(1,2,a=3,b=4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 117,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1, 2, 3, 4)\n",
+      "{}\n",
+      "()\n",
+      "{'a': 3, 'b': 4}\n",
+      "(1, 2, 3, 4)\n",
+      "{'a': 3, 'b': 4}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# You can do both at once, if you like\n",
+    "def all_the_args(*args, **kwargs):\n",
+    "    print(args)\n",
+    "    print(kwargs)\n",
+    "\n",
+    "# When calling functions, you can do the opposite of args/kwargs!\n",
+    "# Use * to expand tuples and use ** to expand kwargs.\n",
+    "args = (1, 2, 3, 4)\n",
+    "kwargs = {\"a\": 3, \"b\": 4}\n",
+    "all_the_args(*args)            # equivalent to foo(1, 2, 3, 4)\n",
+    "all_the_args(**kwargs)         # equivalent to foo(a=3, b=4)\n",
+    "all_the_args(*args, **kwargs)  # equivalent to foo(1, 2, 3, 4, a=3, b=4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 118,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Returning multiple values (with tuple assignments)\n",
+    "def swap(x, y):\n",
+    "    return y, x  # Return multiple values as a tuple without the parenthesis.\n",
+    "                 # (Note: parenthesis have been excluded but can be included)\n",
+    "\n",
+    "x = 1\n",
+    "y = 2\n",
+    "x, y = swap(x, y) \n",
+    "print(x,y)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 119,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "inside set_var, x =  43\n",
+      "inside set_global_var, x prior change =  5\n",
+      "inside set_global_var, x after change =  6\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Function scoping \n",
+    "x = 5\n",
+    "def set_var(num):\n",
+    "    # Local var x not the same as global variable x\n",
+    "    x = num    # => 43\n",
+    "    print (\"inside set_var, x = \", x) \n",
+    "\n",
+    "def set_global_var(num):\n",
+    "    global x\n",
+    "    print (\"inside set_global_var, x prior change = \", x) \n",
+    "    x = num    # global var x is now set to 6\n",
+    "    print (\"inside set_global_var, x after change = \", x) \n",
+    "\n",
+    "set_var(43)\n",
+    "set_global_var(6)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 95,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "19"
+      ]
+     },
+     "execution_count": 95,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Python has first class functions\n",
+    "def create_adder(x):\n",
+    "    def adder(y):\n",
+    "        return x + y\n",
+    "    return adder\n",
+    "\n",
+    "add_10 = create_adder(10)\n",
+    "add_10(3)\n",
+    "add_10(9)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 97,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 97,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# There are also anonymous functions\n",
+    "(lambda x: x > 2)(1)\n",
+    "# (lambda paramters : code)(values of parameters)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 98,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "5"
+      ]
+     },
+     "execution_count": 98,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(lambda x, y: x ** 2 + y ** 2)(2, 1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 99,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[4, 2, 3]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# There are built-in higher order functions\n",
+    "print(list(map(max, [1, 2, 3], [4, 2, 1]))) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 102,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[4, 5, 6, 7]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(list(filter(lambda x: x > 3, [3, 4, 5, 6, 7])))  "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 103,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "6\n",
+      "2\n",
+      "(1, -1)\n"
+     ]
+    }
+   ],
+   "source": [
+    "### You can call functions from string as follows\n",
+    "# globals()[\"function_name\"]()\n",
+    "####\n",
+    "\n",
+    "def simplefunc(a):\n",
+    "    return a\n",
+    "\n",
+    "def add(a,b):\n",
+    "    return a+b\n",
+    "\n",
+    "print(globals()['add'](2,4))\n",
+    "print(globals()['simplefunc'](2))\n",
+    "print(globals()['swap'](-1,1))"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.0"
+  },
+  "toc": {
+   "colors": {
+    "hover_highlight": "#DAA520",
+    "running_highlight": "#FF0000",
+    "selected_highlight": "#FFD700"
+   },
+   "moveMenuLeft": true,
+   "nav_menu": {
+    "height": "512px",
+    "width": "252px"
+   },
+   "navigate_menu": true,
+   "number_sections": true,
+   "sideBar": true,
+   "threshold": 4,
+   "toc_cell": false,
+   "toc_section_display": "block",
+   "toc_window_display": false,
+   "widenNotebook": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
